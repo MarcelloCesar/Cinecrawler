@@ -1,0 +1,9 @@
+
+version: '3'
+services:
+  env:
+    build: .
+    volumes:
+      - .:/home
+    environment:
+      - SPACE_BOT_TOKEN=""
