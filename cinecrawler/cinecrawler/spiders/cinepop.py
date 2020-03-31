@@ -18,7 +18,7 @@ class CinepopSpider(scrapy.Spider):
                 file.write(href + ' | ' + title + "\n")
 
                 requests.get("https://api.telegram.org/bot936831786:AAEcz9i8g2FKLWG2j8g5Nf93v-g-y5X3F0A/sendMessage?chat_id=827513381&text=" + href)
-
+                exit()
 
 
 

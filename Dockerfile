@@ -4,7 +4,7 @@ run apt update -y && apt upgrade -y
 run apt install -y python3
 run apt install -y python3-pip
 run apt install -y curl
-run apt install git
+run apt install -y git
 
 run pip3 install pyTelegramBotAPI
 run pip3 install scrapy
