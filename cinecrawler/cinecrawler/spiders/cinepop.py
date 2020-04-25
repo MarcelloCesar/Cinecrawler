@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import requests
-
+import psycopg2 as pg
+from cinecrawler.items import CinecrawlerItem
 
 class CinepopSpider(scrapy.Spider):
     name = 'cinepop'
@@ -10,15 +11,17 @@ class CinepopSpider(scrapy.Spider):
 
     def parse(self, response):
         links = response.xpath("//div[@class='td-module-thumb']/a")
-        with open("teste.txt", "w") as file:
-            for link in links:
-                href  = link.xpath('@href').extract_first()
-                title = link.xpath('@title').extract_first()
 
-                file.write(href + ' | ' + title + "\n")
+        for link in links:
+            href  = link.xpath('@href').extract_first()
+            title = link.xpath('@title').extract_first()
 
-                requests.get("https://api.telegram.org/bot936831786:AAEcz9i8g2FKLWG2j8g5Nf93v-g-y5X3F0A/sendMessage?chat_id=827513381&text=" + href)
-                exit()
+
+            yield CinecrawlerItem(url=href, site="CINEPOP", titulo=title)
+
+
+
+
 
 
 

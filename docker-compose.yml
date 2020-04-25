@@ -1,9 +1,31 @@
 
 version: '3'
 services:
-  env:
+  app:
     build: .
     volumes:
       - .:/home
     environment:
       - SPACE_BOT_TOKEN=""
+
+    depends_on:
+      - database
+
+  database:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: senha
+      POSTGRES_DB: cinecrawler
+      PGDATA: /tmp
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

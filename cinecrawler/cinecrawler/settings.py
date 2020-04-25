@@ -21,6 +21,12 @@ NEWSPIDER_MODULE = 'cinecrawler.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+# Configure item pipelines
+# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+    'cinecrawler.pipelines.CinecrawlerPipeline': 300,
+}
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -60,12 +66,6 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
-#}
-
-# Configure item pipelines
-# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'cinecrawler.pipelines.CinecrawlerPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
