@@ -12,10 +12,10 @@ class CinecrawlerPipeline(object):
 
     def open_spider(self, spider):
         self.db = pg.connect(
-            host="192.168.99.101",
-            user="user",
-            password="senha",
-            database="cinecrawler"
+            host="ec2-18-209-187-54.compute-1.amazonaws.com",
+            user="oerdlziwkipzzf",
+            password="65490a8d2b37124d7ca79b0c3bef8809dccc8f5cd7bd9895302fe20a7a1584a0",
+            database="d9mq0hiu9k2pvn"
         )
 
         self.cursor = self.db.cursor()
