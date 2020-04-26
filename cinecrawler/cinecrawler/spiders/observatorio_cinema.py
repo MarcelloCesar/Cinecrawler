@@ -14,4 +14,4 @@ class ObservatorioCinemaSpider(scrapy.Spider):
             href = link.xpath('@href').extract_first()
             title = link.xpath('./text()').extract_first()
 
-            yield CinecrawlerItem(url=href, site="CINEPOP", titulo=title)
+            yield CinecrawlerItem(url=href, site="OBSERVATORIO", titulo=title)
