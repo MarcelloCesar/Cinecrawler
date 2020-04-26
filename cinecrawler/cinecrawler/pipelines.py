@@ -29,5 +29,5 @@ class CinecrawlerPipeline(object):
         # verifica se ja foi notificado o item encontrado
         self.cursor.execute("SELECT * FROM LINKS WHERE URL='%s'" % (item['url']))
         if self.cursor.fetchone() is None:
-            requests.get("https://api.telegram.org/bot936831786:AAEcz9i8g2FKLWG2j8g5Nf93v-g-y5X3F0A/sendMessage?chat_id=827513381&text=" + item['url'])
+            requests.get("https://api.telegram.org/bot936831786:AAEcz9i8g2FKLWG2j8g5Nf93v-g-y5X3F0A/sendMessage?chat_id=-420327469&text=" + item['url'])
             self.cursor.execute("INSERT INTO LINKS(URL, SITE, TITULO) VALUES('%s', '%s', '%s')" % (item['url'], item['site'], item['titulo']))
